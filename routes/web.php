@@ -11,6 +11,11 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+// 登录模块
+Route::match(['get', 'post'], '/admin/login', 'Admin\ManagerController@login');
