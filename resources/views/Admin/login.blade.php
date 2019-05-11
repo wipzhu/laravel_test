@@ -35,11 +35,11 @@
 <div class="header"></div>
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
-        <form class="form form-horizontal" action="index.html" method="post">
+        <form id="login-form" class="form form-horizontal" action="" method="post">
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
                 <div class="formControls col-xs-8">
-                    <input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+                    <input id="" name="username" type="text" placeholder="账户" class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
@@ -50,9 +50,17 @@
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-                    <img src=""> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+                    <input class="input-text size-L" type="text" placeholder="请输入验证码" name="captcha" value="" style="width:150px;">
+                    <img src="{{captcha_src()}}" style="cursor: pointer" onclick="this.src='{{captcha_src()}}'+Math.random()" title="看不清楚，换一张"> </div>
             </div>
+            <div class="row cl c-red">
+                @if($errors->has('captcha'))
+                    <div class="formControls col-xs-8 col-xs-offset-3">
+                        <p class="text-danger text-left"><strong>{{$errors->first('captcha')}}</strong></p>
+                    </div>
+                @endif
+            </div>
+
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
                     <label for="online">
@@ -62,8 +70,8 @@
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input name="" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-                    <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+                    <input id="loginBtn" type="submit" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                    <input type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
                 </div>
             </div>
         </form>
@@ -74,6 +82,20 @@
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <!--此乃百度统计代码，请自行删除-->
 <script>
+    // $("#loginBtn").click(function () {
+    //     alert('test');
+    //     $("#login-form").ajaxSubmit();
+    // });
+    // $("#login-form").click(function () {
+    //     var url = "/ytz/tb/issueTender.action";
+    //     var options = {
+    //         url: url,
+    //         success: callback,
+    //         type: 'post',
+    //         dataType: 'json'
+    //     };
+    //     $("#login-form").ajaxSubmit(options);
+    // });
     var _hmt = _hmt || [];
     (function() {
         var hm = document.createElement("script");
