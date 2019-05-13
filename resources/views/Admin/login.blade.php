@@ -36,29 +36,36 @@
 <div class="loginWraper">
     <div id="loginform" class="loginBox">
         <form id="login-form" class="form form-horizontal" action="" method="post">
+            {{csrf_field()}}
+            <div class="row cl c-red">
+                @if(count($errors))
+                    <div class="formControls col-xs-8 col-xs-offset-3">
+                        <p class="text-danger text-left">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                        </p>
+                    </div>
+                @endif
+            </div>
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
                 <div class="formControls col-xs-8">
-                    <input id="" name="username" type="text" placeholder="账户" class="input-text size-L">
+                    <input id="" name="username" type="text" placeholder="账户" value="{{old('username')}}" class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
                 <div class="formControls col-xs-8">
-                    <input id="" name="" type="password" placeholder="密码" class="input-text size-L">
+                    <input id="" name="password" type="password" placeholder="密码" value="{{old('password')}}" class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
                     <input class="input-text size-L" type="text" placeholder="请输入验证码" name="captcha" value="" style="width:150px;">
                     <img src="{{captcha_src()}}" style="cursor: pointer" onclick="this.src='{{captcha_src()}}'+Math.random()" title="看不清楚，换一张"> </div>
-            </div>
-            <div class="row cl c-red">
-                @if($errors->has('captcha'))
-                    <div class="formControls col-xs-8 col-xs-offset-3">
-                        <p class="text-danger text-left"><strong>{{$errors->first('captcha')}}</strong></p>
-                    </div>
-                @endif
             </div>
 
             <div class="row cl">

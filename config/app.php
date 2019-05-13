@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,8 +78,8 @@ return [
     |
     */
 
-//    'locale' => 'en',
-    'locale' => 'zh-CN',
+//    'locale' => 'en',// 英语
+    'locale' => 'zh-CN',// 中文简体
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale

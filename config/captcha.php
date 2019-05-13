@@ -22,7 +22,7 @@ return [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'M', 'N', 'P', 'Q', 'R', 'T', 'U', 'X', 'Y', 'Z',
     ],
     'default' => [
-        'length' => 4,
+        'length' => 5,
         'width' => 180,
         'height' => 42,
         'quality' => 60,

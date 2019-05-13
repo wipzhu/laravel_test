@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         // 关闭后台csrfToken校验
-        'admin/*'
+        // 'admin/*'
     ];
 }
