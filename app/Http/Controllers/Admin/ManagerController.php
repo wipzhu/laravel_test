@@ -112,7 +112,8 @@ class ManagerController extends Controller
      * @param Request $request
      * @return array
      */
-    public function del(Request $request){
+    public function del(Request $request)
+    {
         $mg_id = $request->input('mg_id');
         $res = Manager::find($mg_id)->delete();
         if ($res === false) {
