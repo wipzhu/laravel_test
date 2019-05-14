@@ -21,7 +21,8 @@ class CreateManagerTable extends Migration
             $table->enum('mg_sex', ['男', '女'])->nullable()->comment('性别');
             $table->char('mg_phone', 11)->nullable()->comment('手机号码');
             $table->string('mg_email')->nullable()->comment('邮箱');
-            $table->text('mg_remark')->nullable()->comment('邮箱');
+            $table->string('mg_pic')->nullable()->comment('头像');
+            $table->text('mg_remark')->nullable()->comment('备注');
             $table->timestamps(); // 生成created_at和update_at
             $table->softDeletes(); // 软删除 delete_at
             $table->rememberToken();
