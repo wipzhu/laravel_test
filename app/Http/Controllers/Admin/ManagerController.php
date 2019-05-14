@@ -115,7 +115,6 @@ class ManagerController extends Controller
     public function del(Request $request){
         $mg_id = $request->input('mg_id');
         $res = Manager::find($mg_id)->delete();
-        dd($res);
         if ($res === false) {
             return ['success' => false];
         } else {
