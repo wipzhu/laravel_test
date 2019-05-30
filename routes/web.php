@@ -20,6 +20,8 @@ Route::get('/', function () {
 // 登录模块           name()      别名login
 Route::match(['get', 'post'], '/admin/login', 'Admin\ManagerController@login')->name('login');
 
+Route::match(['get', 'post'], '/admin/register', 'Admin\ManagerController@register')->name('register');
+
 // 后台模块：在该组中的路由使用中间件auth中admin guard进行验证
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/logout', 'Admin\ManagerController@logout');
