@@ -2,7 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Commands\TestWorkerMan;
+use App\Console\Commands\WkHttp;
+use App\Console\Commands\WkWebsocket;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,7 +16,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
-        TestWorkerMan::class,       // workerman测试
+        WkWebsocket::class,       // workerman测试
+        WkHttp::class,       // workerman测试
     ];
 
     /**

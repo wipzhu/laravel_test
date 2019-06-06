@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/home/articles', 'Home\HomeController@articles');
-Route::get('/home/test_workerman', 'Home\HomeController@test_workerman');
+Route::get('/home/wkWebsocket', 'Home\HomeController@WkWebsocket');
+Route::get('/home/wkHttp', 'Home\HomeController@WkHttp');

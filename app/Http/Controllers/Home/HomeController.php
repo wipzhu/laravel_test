@@ -12,7 +12,11 @@ class HomeController extends Controller
         return view('home.articles');
     }
 
-    public function test_workerman(){;
-        return view('home.test_workerman');
+    public function wkWebsocket(){;
+        return view('home.wkWebsocket');
+    }
+
+    public function wkHttp(){;
+        return view('home.wkHttp');
     }
 }

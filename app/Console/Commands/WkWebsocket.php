@@ -13,13 +13,15 @@ use Illuminate\Console\Command;
 use Workerman\Lib\Timer;
 use Workerman\Worker;
 
-class TestWorkerMan extends Command
+define('MAX_REQUEST_TIME', 10);
+
+class WkWebsocket extends Command
 {
     /**
      * 命令行执行命令
      * @var string
      */
-    protected $signature = 'workerman';
+    protected $signature = 'WkWebsocket';
 
     /**
      * 命令描述
@@ -41,13 +43,17 @@ class TestWorkerMan extends Command
     public function handle()
     {
         $worker = new Worker('websocket://127.0.0.1:8686');
-
+        // 启动2个进程，同时监听8686端口，以websocket协议提供服务
+        $worker->count = 2;
+        $worker->onWorkerStart = function () {
+            echo "Worker starting...\n";
+        };
         $data = ['key' => 'value'];
-        $worker->onMessage = function ($worker) use ($data) {
+        $worker->onMessage = function ($worker){
             // 每2秒发送一次
             $time_interval = 2;
-            Timer::add($time_interval, function () use ($worker, $data) {
-                $worker->send(json_encode($data, JSON_UNESCAPED_UNICODE));
+            Timer::add($time_interval, function () use ($worker) {
+                $worker->send(time());
             });
         };
         $worker->onClose = function () {
