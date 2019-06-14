@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Response;
 
 class TestApiController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+    {
         return Response::json(['key' => 'Api请求测试成功']);
     }
 }

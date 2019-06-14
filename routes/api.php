@@ -20,3 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 // api测试
 Route::get('/testapi/index', 'Api\TestApiController@index');
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', 'Api\AuthController@login');
+    Route::post('logout', 'Api\AuthController@logout');
+    Route::post('refresh', 'Api\AuthController@refresh');
+    Route::post('me', 'Api\AuthController@me');
+});

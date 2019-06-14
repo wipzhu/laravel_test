@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Contracts\Routing\ResponseFactory;
 
 if (!function_exists('pr')) {
     function pr($arr)
     {
-        if (is_array($arr) && !empty($arr)) {
+        if (!empty($arr)) {
             echo "<pre>";
             print_r($arr);
             echo "<pre/>";
