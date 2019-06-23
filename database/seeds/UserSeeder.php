@@ -1,5 +1,7 @@
 <?php
 
+use App\Model\User;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -17,9 +19,9 @@ class UserSeeder extends Seeder
 //        );
 
         // 批量生成数据
-        $faker = \Faker\Factory::create('zh_CN');
+        $faker = Factory::create('zh_CN');
         for ($i = 0; $i < 10; $i++) {
-            \App\Model\User::create([
+            User::create([
                 'userName' => $faker->name,
                 'email' => $faker->email,
                 'mobile' => $faker->phoneNumber,
