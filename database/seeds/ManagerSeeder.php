@@ -1,5 +1,7 @@
 <?php
 
+use App\Model\Manager;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class ManagerSeeder extends Seeder
@@ -17,10 +19,13 @@ class ManagerSeeder extends Seeder
 //        );
 
         // 批量生成数据
-        $faker =\Faker\Factory::create('zh_CN');
-        for ($i=0;$i<50;$i++){
-            \App\Model\Manager::create([
-                'username' => $faker->name,
+        $faker = Factory::create('zh_CN');
+        for ($i = 0; $i < 10; $i++) {
+            Manager::create([
+                'username' => $faker->userName,
+                'mg_sex' => ['女', '男'][rand(0, 1)],
+                'mg_phone' => $faker->phoneNumber,
+                'mg_email' => $faker->email,
                 'password' => bcrypt('qweasd11'),
             ]);
         }
