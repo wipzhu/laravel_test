@@ -11,9 +11,11 @@ return [
     | API, giving you convenient access to each back-end using the same
     | syntax for every one. Here you may define a default connection.
     |
+    | Supported: "null", "sync", "database", "beanstalkd", "sqs", "redis"
     */
 
-    'default' => env('QUEUE_DRIVER', 'sync'),
+//    'default' => env('QUEUE_DRIVER', 'sync'),
+    'default' => env('QUEUE_DRIVER', 'redis'), // 设置默认的队列驱动为redis
 
     /*
     |--------------------------------------------------------------------------
@@ -60,6 +62,7 @@ return [
         'redis' => [
             'driver' => 'redis',
             'connection' => 'default',
+//            'connection' => 'redis_01',
             'queue' => 'default',
             'retry_after' => 90,
             'block_for' => null,
@@ -78,9 +81,9 @@ return [
     |
     */
 
-    'failed' => [
-        'database' => env('DB_CONNECTION', 'mysql'),
-        'table' => 'failed_jobs',
-    ],
+//    'failed' => [
+//        'database' => env('DB_CONNECTION', 'mysql'),
+//        'table' => 'failed_jobs',
+//    ],
 
 ];

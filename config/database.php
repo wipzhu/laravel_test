@@ -113,6 +113,17 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
+//            'read_write_timeout' => 0, //  读写超时时间
+        ],
+        "redis_01"=> [
+            'host' => "127.0.0.1",
+            'port' => 6379,
+            'database' => 1
+        ],
+        "redis_02"=> [
+            'host' => "127.0.0.1",
+            'port' => 6379,
+            'database' => 2
         ],
 
     ],
