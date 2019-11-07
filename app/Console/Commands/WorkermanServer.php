@@ -6,6 +6,13 @@ use Illuminate\Console\Command;
 use Workerman\Lib\Timer;
 use Workerman\Worker;
 
+/**
+ * workerman服务端
+ * 启动方式：php artisan workerman:server start {-d}
+ *
+ * Class WorkermanServer
+ * @package App\Console\Commands
+ */
 class WorkermanServer extends Command
 {
     /**
