@@ -45,8 +45,16 @@ class WkWebsocket extends Command
         $worker = new Worker('websocket://127.0.0.1:8686');
         // 启动2个进程，同时监听8686端口，以websocket协议提供服务
         $worker->count = 2;
+        $worker->name = 'workerman test';
+
         $worker->onWorkerStart = function () {
-            echo "Worker starting...\n";
+            $this->info($worker->name . ' started!');
+
+            $this->line('aaaaaaaaaaaaa');
+            $this->error('aaaaaaaaaaaaa');
+            $this->info('aaaaaaaaaaaaa');
+            $this->comment('aaaaaaaaaaaaa');
+            $this->question ('aaaaaaaaaaaaa');
         };
         $data = ['key' => 'value'];
         $worker->onMessage = function ($worker){
