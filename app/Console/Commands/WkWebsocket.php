@@ -47,7 +47,7 @@ class WkWebsocket extends Command
         $worker->count = 2;
         $worker->name = 'workerman test';
 
-        $worker->onWorkerStart = function () {
+        $worker->onWorkerStart = function () use ($worker) {
             $this->info($worker->name . ' started!');
 
             $this->line('aaaaaaaaaaaaa');
