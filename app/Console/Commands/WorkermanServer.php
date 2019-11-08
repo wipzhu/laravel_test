@@ -159,7 +159,8 @@ class WorkermanServer extends Command
      */
     public function onMessage($connection, $message)
     {
-        $this->info("开始发送消息:" . $message);
+        $this->info("\n开始发送消息:");
+        $this->line($message);
         $connection->send('我已收到你的消息，原样返回：' . $message);
     }
 
