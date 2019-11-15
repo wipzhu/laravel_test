@@ -172,7 +172,8 @@ class RsaUtil
      * @param array $data 要转成字符串的数组
      * @param string $signTime 加签时间戳(因精确到毫秒级,实时生成会有误差,故当做形参传入)
      * @param bool $needEncode 是否需要url转码
-     * @return string 格式如 1540537491925|00||||||||U01|qgg250154053749192499921||||4127261994
+     * @return string 格式如
+     *      count=10&endTime=20191115&signTime=1573813555897&start=-10&startTime=20191101
      */
     public static function getStrToBeSigned($data, $signTime, $needEncode = false)
     {
